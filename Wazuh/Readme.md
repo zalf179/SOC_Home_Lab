@@ -65,11 +65,3 @@ https://<Your_Ubuntu_Server_IP_Address>
 
 ---
 
-## ➡️ Next Steps: Deploying AgentsOnce your Wazuh Platform is operational, you need to deploy **Wazuh Agents** on the endpoints (servers, workstations) you wish to monitor.
-
-1. Navigate to the Dashboard.
-2. Go to **Wazuh** \rightarrow **Server Management** \rightarrow **Deploy new agent**.
-3. Select the **Operating System** of your target endpoint.
-4. Follow the instructions provided by the Dashboard, ensuring you use the correct IP address for your Wazuh Server.
-
----
