@@ -1,0 +1,24 @@
+#!/bin/sh
+# Integrasi n8n wrapper (Standard Boilerplate)
+
+WPYTHON_BIN="framework/python/bin/python3"
+
+SCRIPT_PATH_NAME="$0"
+
+DIR_NAME="$(cd $(dirname ${SCRIPT_PATH_NAME}); pwd -P)"
+SCRIPT_NAME="$(basename ${SCRIPT_PATH_NAME})"
+
+case ${DIR_NAME} in
+    */integrations)
+        if [ -z "${WAZUH_PATH}" ]; then
+            WAZUH_PATH="$(cd ${DIR_NAME}/..; pwd)"
+        fi
+
+        PYTHON_SCRIPT="${DIR_NAME}/${SCRIPT_NAME}.py"
+    ;;
+    # ... (Kasus lainnya dihilangkan untuk kesederhanaan)
+esac
+
+# Jalankan Python script dengan semua argumen
+# Argumen 1 adalah path ke file alert, kita akan biarkan Python script yang menanganinya
+${WAZUH_PATH}/${WPYTHON_BIN} ${PYTHON_SCRIPT} "$@"
