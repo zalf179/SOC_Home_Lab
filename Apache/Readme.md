@@ -60,7 +60,7 @@ If you see the **Apache2 Ubuntu Default Page**, it works!
 ---
 
 
-To monitor Apache access logs using Wazuh , you need to add the log location to your agent configuration.
+To monitor Apache access logs using Wazuh , you need to add the log location to your manager configuration.
 
 ### 1. Edit Configuration
 
