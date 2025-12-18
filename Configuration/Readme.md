@@ -221,3 +221,59 @@ sudo systemctl restart wazuh-manager
 
 ```
 Make sure the Script custom-n8n and custom-n8n.py is in /var/ossec/integrations/
+
+
+# 🛠️ N8n Workflow
+<img width="1919" height="1016" alt="image" src="https://github.com/user-attachments/assets/409af772-2678-46f6-9e31-acf23f4d74b8" />
+
+
+
+
+### 1. Trigger and Data Fetching
+
+* **Webhook**: This is the starting point. It receives wazuh log based on rule id 100007.
+* **VirusTotal HTTP Request**: The workflow sends that IP address to the VirusTotal API. It gathers security intelligence from over 90 antivirus engines and URL/domain scanning services.
+* **Summary**: This node processes the raw data from VirusTotal. It calculates the reputation and sets a final status (e.g., "Malicious" or "Clean") based on the scan results.
+
+### 2. Logic Gate (The "IF" Node)
+
+* **Malicious Check**: This is the brain of the workflow. It uses the expression `{{$json["summary"]["Status"] === "Malicious"}}` to decide which path to take:
+* **True Branch**: If the status is exactly "Malicious," it triggers the security response.
+* **False Branch**: If the IP is clean or suspicious but not confirmed malicious, it skips the blocking process.
+
+
+
+### 3. Branch A: Threat Mitigation (True)
+
+* **Iptables Block**: Since n8n is running in Docker, this node (likely using SSH) connects to your Ubuntu Host and executes an `iptables` command. It specifically targets the `DOCKER-USER` chain to ensure the malicious IP is blocked before it can reach any of your Docker containers.
+* **Blocking Results**: This node generates a **Response HTML** page. It provides visual confirmation that the threat was detected and that the firewall has been successfully updated to drop traffic from that IP.
+
+### 4. Branch B: Safe Result (False)
+
+* **Result**: This node also generates an **Response HTML** page, but with a "Safe" theme (usually green). It informs the user that the IP was checked and found to be harmless, so no blocking action was taken.
+
+
+
+
+
+
+
+
+
+## 🔧 Prerequisites
+
+### 1. VirusTotal Setup
+
+You will need a VirusTotal API Key. Replace the placeholder in the HTTP Request node with your actual key.
+
+### 2. SSH Credentials
+
+you need to add ssh credentials for using iptbales via ssh
+
+
+
+
+
+
+
+
