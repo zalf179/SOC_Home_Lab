@@ -149,7 +149,8 @@ python bruteforce.py
 
 ```
 
-Once triggered, Wazuh will fire **Rule 100007**, which is automatically caught by the **n8n integration** we configured earlier.
+Once triggered, Wazuh will fire **Rule 100007**.
+<img width="1919" height="1018" alt="image" src="https://github.com/user-attachments/assets/e5afd5af-24bc-4634-80af-70885127b75f" />
 
 ---
 
