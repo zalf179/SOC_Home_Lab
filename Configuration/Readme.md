@@ -180,11 +180,11 @@ Once triggered, Wazuh will fire **Rule 100007**.
 ## 🔗 Wazuh to n8n Integration (Webhook)
 
 1. Open your **n8n** dashboard.
-2. Create a new workflow and add a **Webhook Node**.
-3. Set the HTTP Method to `POST`.
-4. Ensure to copy the Webhook path
-5. Use the "Production URL" for permanent use.
-
+2. Create a new workflow
+3. Copy my workflow.json and go to webhook node
+4. Use the "Production URL" for permanent use.
+5. Ensure to copy the Webhook path
+   
 ---
 
 This configuration allows the **Wazuh Manager** to send specific alerts to an **n8n webhook** for automated incident response or notifications.
@@ -272,8 +272,17 @@ you need to add ssh credentials for using iptbales via ssh
 
 
 
+## 🧪 Simulation
+## This is the example if the ip was bad reputation, it will automatically blocked and send a result with html
+<img width="1475" height="540" alt="image" src="https://github.com/user-attachments/assets/791d1929-2e19-42d8-b073-ee3e89507fd2" />
 
 
+<img width="1919" height="1018" alt="image" src="https://github.com/user-attachments/assets/b75c1d84-e182-45fb-8de1-a960a9fae79c" />
+<img width="981" height="112" alt="image" src="https://github.com/user-attachments/assets/57bb81eb-8ec6-49eb-9ac1-cb8ecd704ce5" />
 
+## This is the example if the ip was harmless, it will automatically send a result with html
 
+<img width="1577" height="654" alt="image" src="https://github.com/user-attachments/assets/318518eb-999e-4b8a-8581-a6efe4a0403e" />
+
+<img width="1895" height="861" alt="image" src="https://github.com/user-attachments/assets/9a3279ec-cd62-41d2-8735-fd89a81246b7" />
 
