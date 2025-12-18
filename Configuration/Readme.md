@@ -178,12 +178,10 @@ Once triggered, Wazuh will fire **Rule 100007**, which is automatically caught b
 
 ## 🔗 Wazuh to n8n Integration (Webhook)
 
-# 🛠️ n8n Workflow Setup
-
 1. Open your **n8n** dashboard.
 2. Create a new workflow and add a **Webhook Node**.
 3. Set the HTTP Method to `POST`.
-4. Ensure the Webhook path matches the one in your `ossec.conf`.
+4. Ensure to copy the Webhook path
 5. Use the "Production URL" for permanent use.
 
 ---
@@ -201,7 +199,7 @@ sudo nano /var/ossec/etc/ossec.conf
 
 ### 2. Add the Integration Block
 
-Paste the following block inside the `<ossec_config>` section. This will trigger the webhook whenever **Rule ID 100007** is fired.
+Paste the following block inside the `<ossec_config>` section, change the ip and webhook path that you just copy from n8n webhook node. This will trigger the webhook whenever **Rule ID 100007** is fired.
 
 ```xml
 <integration>
