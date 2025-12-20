@@ -3,8 +3,6 @@
 
 ---
 
-## This project outlines the implementation of a lightweight, adaptive Security Operations Center (SOC) workflow designed for real-time threat monitoring and automated response on a single Ubuntu server.
-
 The core goal is to minimize the time between a potential intrusion attempt (detected via suspicious Apache web access logs) and the mitigation of the threat (blocking the malicious IP address via Iptables).
 
 The solution utilizes a powerful stack:
